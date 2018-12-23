@@ -8,6 +8,12 @@ I have create a linux vm hosted in Azure.
 Server IP: 104.43.141.177
 Server URL: http:// catalog.centralus.cloudapp.azure.com
 
+# Firewall 
+
+All firewall rules are managed via Azure portal.
+<img src="https://ufile.io/m67pz">
+
+
 # Installing Base Dependencies
 ## Installing Python Packages
 

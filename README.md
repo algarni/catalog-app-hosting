@@ -30,12 +30,41 @@ sudo apt install postgresql postgresql-contrib
 * Database User: catalog
 * Linux User for Catalog DB: catalog
 
-## Installing the Application
+# Installing the Application
 
 ```
 $ git clone https://github.com/algarni/catalog.git
 $ cd catalog
 $ pip3 install -r requirements.txt
+```
+
+# Preparing Apache Webserver
+
+```
+$ sudo apt-get -y install libapache2-mod-wsgi-py3
+$ sudoedit /etc/apache2/sites-available/catalog.conf
+```
+Add the following lines to the catalog.conf file:
+
+```
+## /etc/apache2/sites-available/catalog.conf
+<VirtualHost *>
+ ServerName catalog.centralus.cloudapp.azure.com
+ WSGIDaemonProcess catalog user=grader group=grader threads=5
+ WSGIScriptAlias / /home/grader/catalog/catalog.wsgi
+<Directory /home/grader/catalog/>
+ WSGIProcessGroup catalog
+ WSGIApplicationGroup %{GLOBAL}
+ WSGIScriptReloading On
+ Require all granted
+</Directory>
+</VirtualHost>
+```
+Make the catalog.conf the default
+```
+$ sudo a2dissite 000-default.conf
+$ sudo a2ensite catalog.conf
+$ sudo service apache2 restart
 ```
 
 # References

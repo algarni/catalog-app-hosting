@@ -11,7 +11,7 @@ Server URL: http:// catalog.centralus.cloudapp.azure.com
 # Firewall 
 
 All firewall rules are managed via Azure portal.
-<img src="https://ufile.io/m67pz">
+<a href="https://ibb.co/C2KFPQJ"><img src="https://i.ibb.co/zJVw6Z8/udacity-inbound-security-rules-new.png" alt="udacity-inbound-security-rules-new" border="0"></a>
 
 
 # Installing Base Dependencies
